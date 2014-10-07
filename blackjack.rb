@@ -254,14 +254,3 @@ puts "Would you like to play again (Y/N)?"
 input = gets.chomp.upcase!
 
 end until input == "N"
-
-#Not done yet...
-
-# if check_if_bust($sum, 0) == "a"
-# 			comp_hit_stay(all_cards_available, $sum_comp)
-# 			check_if_bust($sum_comp, 1)
-# 			if check_if_bust($sum_comp, 1) == "b"
-# 				compare_values($sum, $sum_comp)
-# 			end
-# 		else
-# end
