@@ -1,5 +1,5 @@
 # Here we go with the blackjack game!
-
+# What a wild and ugly code...first try. Will fix soon...
 # Psuedo-code
 
 # 1. Welcome to the game. Ask for user's name.
