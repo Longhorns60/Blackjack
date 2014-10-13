@@ -57,6 +57,7 @@ begin
 end until ["Y", "y", "YES"].include?(ans) == true
 
 # Initialize deck.
+begin 
 
 suits = ["of Hearts", "of Diamonds", "of Spades", "of Clubs"]
 cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
@@ -92,6 +93,7 @@ def calculate_sum(cards)
 	#correct for the aces
 	arr.select {|e| e == "Ace"}.count.times do 
 		if total > 21
+			puts "Since you have an Ace, I'm subtracting 10 from your sum."
 			total -= 10
 		end
 	end
@@ -102,7 +104,7 @@ end
 # Dealer shuffles and deals.
 
 puts ""
-puts "Dealer's shuffling..."
+puts "OK! Dealer's shuffling..."
 deck.shuffle!
 
 my_cards = []
@@ -144,9 +146,11 @@ while my_total < 21
 	if hs_ans == "H"
 		new_card = deck.pop
 		my_cards << new_card
+		puts ""
 		puts "#{name}, you received the #{new_card.join(" ")}."
 		my_total = calculate_sum(my_cards)
 		puts "You now have a total of #{my_total}."
+		puts ""
 	else
 		break
 	end
@@ -189,3 +193,18 @@ else
 		puts "Sorry. You lose. Your total is less than the dealer's total."
 	end
 end
+
+begin 
+	puts "Would you like to play again?"
+	fin_ans = gets.chomp.upcase
+	if ["Y", "N"].include?(fin_ans) == false
+		puts ""
+		puts "Try again."
+	elsif fin_ans == "N" || fin_ans == "NO"
+		puts ""
+		puts "Goodbye."
+	end
+end until ["Y", "N"].include?(fin_ans) == true
+
+end until ["N"].include?(fin_ans) == true
+
